@@ -4,7 +4,7 @@ from django.db import models
 class course (models.Model):
     departmentID = models.IntegerField
     courseNumber = models.IntegerField
-    courseTitle = models.CharField(max_length=None)
+    courseTitle = models.CharField(max_length=100)
 
 class section (models.Model):
     departmentID = models.IntegerField
