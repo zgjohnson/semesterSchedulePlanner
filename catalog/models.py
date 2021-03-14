@@ -4,14 +4,14 @@ from django.db import models
 class course (models.Model):
     departmentID = models.IntegerField
     courseNumber = models.IntegerField
-    courseTitle = models.CharField(max_length=100)
+    courseTitle = models.CharField(max_length=100, default"")
 
 class section (models.Model):
     departmentID = models.IntegerField
     courseNumber = models.IntegerField
 
 class reservedTime (models.Model):
-    description = models.CharField(max_length=250)
+    description = models.CharField(max_length=250, default"")
     startTime = models.TimeField(auto_now=False, auto_now_add=False)
     endTime = models.TimeField(auto_now=False, auto_now_add=False)
     sectionID = models.IntegerField
