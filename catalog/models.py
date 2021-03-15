@@ -13,11 +13,11 @@ class section(models.Model):
     courseNumber = models.IntegerField
 
 
-class classPeriod(models.Model):
-    class Meta:
-        unique_together = (('meetingDays', 'time'),)
+#class classPeriod(models.Model):
+ #   class Meta:
+  #      unique_together = (('meetingDays', 'time'),)
 
-        meetingDays = models.CharField(primary_key=True, max_length=None)
-        time = models.TimeField()
+   #     meetingDays = models.CharField()
+    #    time = models.TimeField()
 # used a solution from StackOverflow to make a composite key
 # https://stackoverflow.com/questions/28712848/composite-primary-key-in-django
