@@ -14,7 +14,7 @@ class sspCredential (models.Model):
     # Leaving out accessLevel and emailVerified
 
 class student (models.Model):
-    name = models.CharField(maxlength=250, null=False)
+    name = models.CharField(max_length=250, null=False)
     emailAddress = models.EmailField(max_length=254, primary_key=True)
     userName = models.CharField(max_length=20, null=False)
     password = models.CharField(max_length=20, null=False)
