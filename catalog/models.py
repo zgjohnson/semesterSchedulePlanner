@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 class course(models.Model):
 
-    department_ID = models.IntegerField()
+    department_ID = models.IntegerField(blank=True)
    # courseNumber = models.IntegerField(primary_key=True, default=0, "Course Number")
     course_title = models.CharField(max_length=250, blank=True)
 
@@ -12,12 +12,12 @@ class course(models.Model):
 class section(models.Model):
     # Using Django Default to provide ID key
     # sectionID = models.IntegerField(primary_key=True, default=0, "Section ID", )
-    course_number = models.IntegerField()
+    course_number = models.IntegerField(blank=True)
 
 
 class classPeriod(models.Model):
     #Using Django Default to provide ID key
     meeting_days = models.CharField(max_length=50, blank=True)
-    time = models.TimeField()
+    time = models.TimeField(blank=True)
 
 
