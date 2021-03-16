@@ -34,7 +34,3 @@ def signupUser(request):
                           {'form': UserCreationForm(), 'error': 'Passwords did not match'})
 
 
-
-
-
-

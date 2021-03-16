@@ -19,12 +19,15 @@ from accounts import views
 from django.urls import include
 
 urlpatterns = [
+
+    path('accounts/', include('registration.backends.default.urls')),
     path('admin/', admin.site.urls),
 
     # Accounts
     path('', views.landingPage, name='landingPage'),
-    path('signup/', views.signupUser, name='signupUser'),
-    path('login/', views.loginUser, name='loginUser'),
+
+
+
 
 
 ]
