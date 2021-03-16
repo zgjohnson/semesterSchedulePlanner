@@ -15,9 +15,9 @@ class section(models.Model):
 
 class classPeriod(models.Model):
     class Meta:
-        unique_together = (('meetingDays', 'time'),)
+        unique_together = (('key1', 'key2'),)
+        key1 = models.CharField(max_length=50, blank=True)
+        key2 = models.TimeField()
 
-        meetingDays = models.CharField(max_length=50, blank=True)
-        time = models.TimeField()
 # used a solution from StackOverflow to make a composite key
 # https://stackoverflow.com/questions/28712848/composite-primary-key-in-django
