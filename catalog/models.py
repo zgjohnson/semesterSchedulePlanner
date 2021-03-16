@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 class course(models.Model):
 
-    department_ID = models.IntegerField(blank=True)
+    department_ID = models.IntegerField(default=None)
    # courseNumber = models.IntegerField(primary_key=True, default=0, "Course Number")
     course_title = models.CharField(max_length=250, blank=True)
 
