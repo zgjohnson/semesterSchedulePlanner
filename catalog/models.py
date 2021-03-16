@@ -4,9 +4,9 @@ from django.db import models
 # Create your models here.
 class course(models.Model):
 
-    department_ID = models.IntegerField(default="0")
+    department_ID = models.IntegerField()
    # courseNumber = models.IntegerField(primary_key=True, default=0, "Course Number")
-    course_title = models.CharField(max_length=250, default="blank")
+    course_title = models.CharField(max_length=250, default="")
 
 
 class section(models.Model):
