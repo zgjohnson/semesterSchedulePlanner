@@ -17,7 +17,7 @@ class section(models.Model):
 
 class classPeriod(models.Model):
     #Using Django Default to provide ID key
-    meetingDays = models.CharField(max_length=50, blank=True, "Meeting Days")
+    meeting_days = models.CharField(max_length=50, blank=True)
     time = models.TimeField()
 
 
