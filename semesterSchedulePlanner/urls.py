@@ -15,17 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from registration import views
+from accounts import views
 from django.urls import include
 
 urlpatterns = [
+
+    path('accounts/', include('registration.backends.default.urls')),
     path('admin/', admin.site.urls),
 
-    # Registration
+    # Accounts
     path('', views.landingPage, name='landingPage'),
-    path('signup/', views.signupUser, name='signupUser'),
-    path('login/', views.loginUser, name='loginUser'),
 
-    # Schedule
-    path('schedule/', include('schedule.urls'))
+
+
+
+
 ]
