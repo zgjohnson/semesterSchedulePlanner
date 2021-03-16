@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.sites',
+
     'registration',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',
-    'accounts',
     'scheduleGenerator',
 ]
 
@@ -62,7 +61,7 @@ ROOT_URLCONF = 'semesterSchedulePlanner.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'accounts/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,6 +130,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-SITE_ID=1
+
+
+LOGIN_REDIRECT_URL = "catalog/ur"
+
+EMAIL_BACKEND= "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST= "smtp.gmail.com"
+EMAIL_HOST_USER= "capstoneualr@gmail.com"
+EMAIL_HOST_PASSWORD= "C@pstoneUalr"
+EMAIL_PORT= 587
+EMAIL_USE_TLS= True
+DEFAULT_FROM_EMAIL= "capstoneualr@gmail.com"
