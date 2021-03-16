@@ -3,21 +3,21 @@ from django.db import models
 
 # Create your models here.
 class course(models.Model):
-
-    department_ID = models.IntegerField()
-   # courseNumber = models.IntegerField(primary_key=True, default=0, "Course Number")
-    course_title = models.CharField(max_length=250, default="")
+    departmentID = models.IntegerField
+    courseNumber = models.IntegerField(primary_key=True, default=0)
+    courseTitle = models.CharField(max_length=250, blank=True)
 
 
 class section(models.Model):
-    # Using Django Default to provide ID key
-    # sectionID = models.IntegerField(primary_key=True, default=0, "Section ID", )
-    course_number = models.IntegerField(blank=True)
+    sectionID = models.IntegerField(primary_key=True, default=0)
+    courseNumber = models.IntegerField
 
 
-class classPeriod(models.Model):
-    #Using Django Default to provide ID key
-    meeting_days = models.CharField(max_length=50, blank=True)
-    time = models.TimeField(blank=True)
+#class classPeriod(models.Model):
+ #   class Meta:
+  #      unique_together = (('meetingDays', 'time'),)
 
-
+   #     meetingDays = models.CharField()
+    #    time = models.TimeField()
+# used a solution from StackOverflow to make a composite key
+# https://stackoverflow.com/questions/28712848/composite-primary-key-in-django
