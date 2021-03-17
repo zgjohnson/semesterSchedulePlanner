@@ -110,3 +110,9 @@ class RegistrationFormNoFreeEmail(RegistrationForm):
 class ResendActivationForm(forms.Form):
     required_css_class = 'required'
     email = forms.EmailField(label=_("E-mail"))
+
+class RegistrationFormPermission(RegistrationForm):
+
+    CHOICES = [('Student','Student'),('Admin','Admin'),('Root','Root')]
+
+    permissionForm = forms.ChoiceField(choices=CHOICES)

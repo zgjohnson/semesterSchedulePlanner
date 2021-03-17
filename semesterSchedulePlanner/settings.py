@@ -142,3 +142,4 @@ EMAIL_HOST_PASSWORD= "C@pstoneUalr"
 EMAIL_PORT= 587
 EMAIL_USE_TLS= True
 DEFAULT_FROM_EMAIL= "capstoneualr@gmail.com"
+EMAIL_USE_SSL = False
