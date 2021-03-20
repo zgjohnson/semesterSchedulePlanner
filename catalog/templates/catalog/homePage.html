@@ -1,1 +1,10 @@
-Home Page
+Catalog
+
+
+
+{% for course in courses %}
+    <a href="{% url 'viewCourse' course.id %}">
+    <li>{{ course.departmentID }} {{ course.courseNumber }} {{ course.courseTitle }}</li>
+    </a>
+{% endfor %}
+

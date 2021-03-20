@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-
+    #'django.contrib.sites',
     'registration',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',
-    'scheduleGenerator',
+
+
 ]
 
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -130,10 +131,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+TIME_INPUT_FORMATS = ('%I:%M %p',)
 
 
-
-LOGIN_REDIRECT_URL = "catalog/ur"
+LOGIN_REDIRECT_URL = "/catalog/home"
 
 EMAIL_BACKEND= "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST= "smtp.gmail.com"
