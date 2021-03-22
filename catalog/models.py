@@ -4,10 +4,10 @@ from django.db import models
 
 
 class Course(models.Model):
-    # Using course_Number as primary key
-    department_Number = models.CharField("Department Number", max_length=4, default=" ")
-    course_Number = models.CharField("Course Number", max_length=4)
-    course_Title = models.CharField("Course Title", max_length=255)
+    # Using course_Number as a primary key
+    department_ID = models.CharField(max_length=4, default=" ")
+    course_Number = models.CharField(max_length=10, primary_key=True)
+    course_Title = models.CharField(max_length=255)
 
     def __str__(self):
         return self.course_Title
@@ -15,8 +15,8 @@ class Course(models.Model):
 
 class Period(models.Model):
     # Using Django default key
-    start_Time = models.TimeField("Start Time")
-    end_Time = models.TimeField("End Time")
+    start_Time = models.TimeField()
+    end_Time = models.TimeField()
     MONDAY = 'M'
     TUESDAY = 'T'
     WEDNESDAY = 'W'
@@ -49,9 +49,9 @@ class Period(models.Model):
 
 class Section(models.Model):
     # Using section_ID as primary key
-    section_ID = models.CharField("Section ID", max_length=4)
-    instructor = models.CharField("Instructor", max_length=255)
-    course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
+    section_ID = models.CharField(max_length=20, primary_key=True)
+    instructor = models.CharField(max_length=255)
+    # course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
     periods = models.ManyToManyField(Period)
 
     def __str__(self):
