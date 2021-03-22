@@ -1,13 +1,13 @@
 
 
-{{ courses.courseTitle }}
+{{ courses.course_Title }}
 
 <ul>
 {% for section in sections %}
 
     {% if section.course.id == courses.id %}
 
-        <li>{{ section.sectionID }} {{ section.instructor }} </li>
+        <li>{{ section.section_ID }} {{ section.instructor }} </li>
         <ol>
             <li>{{ section.periods.values_list}}</li>
         </ol>
