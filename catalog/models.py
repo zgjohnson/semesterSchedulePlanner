@@ -49,7 +49,7 @@ class Period(models.Model):
 
 class Section(models.Model):
     # Using section_ID as primary key
-    section_ID = models.CharField("Section ID", max_length=4, primary_key=True)
+    section_ID = models.CharField("Section ID", max_length=4)
     instructor = models.CharField("Instructor", max_length=255)
     course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
     periods = models.ManyToManyField(Period)
