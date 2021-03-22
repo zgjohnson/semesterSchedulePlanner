@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Course(models.Model):
-    # Using Course Number as primary key
+    # Using course_Number as primary key
     department_ID = models.CharField("Department ID", max_length=4)
     course_Number = models.CharField("Course Number", max_length=4, primary_key=True)
     course_Title = models.CharField("Course Title", max_length=255)
@@ -48,11 +48,11 @@ class Period(models.Model):
 
 
 class Section(models.Model):
-    # Using SectionID as primary key
+    # Using section_ID as primary key
     section_ID = models.CharField("Section ID", max_length=4, primary_key=True)
     instructor = models.CharField("Instructor", max_length=255)
     course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
-    periods = models.ManyToManyField(Period)
+    periods = models.ManyToManyField(Period, to_field='Period_id')
 
     def __str__(self):
         return self.section_ID
