@@ -1,6 +1,6 @@
 from django.contrib.sites.shortcuts import get_current_site
 
-from ... import signals
+from accounts import signals
 from ...models import SupervisedRegistrationProfile
 from ...views import ApprovalView as BaseApprovalView
 from ..default.views import ActivationView as BaseActivationView

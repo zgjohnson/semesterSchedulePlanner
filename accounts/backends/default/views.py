@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render
 
-from ... import signals
+from accounts import signals
 from ...models import RegistrationProfile
 from ...users import UserModel
 from ...views import ActivationView as BaseActivationView

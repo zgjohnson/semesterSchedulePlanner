@@ -1,10 +1,8 @@
 from django.db import models
 
+
 # Create your models here.
-
-
 class Course(models.Model):
-    # Using course_Number as a primary key
     department_ID = models.CharField(max_length=4)
     course_Number = models.CharField(max_length=10)
     course_Title = models.CharField(max_length=255)
@@ -14,9 +12,9 @@ class Course(models.Model):
 
 
 class Period(models.Model):
-    # Using Django default key
     start_Time = models.TimeField()
     end_Time = models.TimeField()
+
     MONDAY = 'M'
     TUESDAY = 'T'
     WEDNESDAY = 'W'
@@ -26,6 +24,7 @@ class Period(models.Model):
     MONWEDFRI = 'MWF'
     TUETHU = 'TR'
     MONTUEWEDTHUFRI = 'MWTWRF'
+
     MEETING_DAY_CHOICES = [
         (MONDAY, 'M'),
         (TUESDAY, 'T'),
@@ -40,7 +39,6 @@ class Period(models.Model):
     meeting_day = models.CharField(
         max_length=10,
         choices=MEETING_DAY_CHOICES,
-
     )
 
     def __str__(self):
@@ -50,8 +48,13 @@ class Period(models.Model):
 class Section(models.Model):
     section_ID = models.CharField(max_length=20)
     instructor = models.CharField(max_length=255)
-    course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     periods = models.ManyToManyField(Period)
 
     def __str__(self):
         return self.section_ID
+
+
+
+
+
