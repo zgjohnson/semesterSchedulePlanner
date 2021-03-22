@@ -5,7 +5,6 @@ from django.db import models
 
 class Course(models.Model):
     # Using course_Number as a primary key
-    id = models.AutoField(primary_key=True)
     department_ID = models.CharField(max_length=4)
     course_Number = models.CharField(max_length=10)
     course_Title = models.CharField(max_length=255)
