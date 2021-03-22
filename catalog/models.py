@@ -17,6 +17,15 @@ class Period(models.Model):
     # Using Django default key
     startTime = models.TimeField("Start Time")
     endTime = models.TimeField("End Time")
+    MONDAY = 'M'
+    TUESDAY = 'T'
+    WEDNESDAY = 'W'
+    THURSDAY = 'R'
+    FRIDAY = 'F'
+    MONWED = 'MW'
+    MONWEDFRI = 'MWF'
+    TUETHU = 'TR'
+    MONTUEWEDTHURFRI = 'MWTWRF'
     MEETING_DAY_CHOICES = [
         (MONDAY, 'M'),
         (TUESDAY, 'T'),
