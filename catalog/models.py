@@ -25,7 +25,7 @@ class Period(models.Model):
     MONWED = 'MW'
     MONWEDFRI = 'MWF'
     TUETHU = 'TR'
-    MONTUEWEDTHURFRI = 'MWTWRF'
+    MONTUEWEDTHUFRI = 'MWTWRF'
     MEETING_DAY_CHOICES = [
         (MONDAY, 'M'),
         (TUESDAY, 'T'),
