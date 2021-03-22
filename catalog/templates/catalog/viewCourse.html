@@ -5,9 +5,9 @@
 <ul>
 {% for section in sections %}
 
-    {% if section.course.id == courses.id %}
+    {% if section.section_ID == courses.course_Number %}
 
-        <li>{{ section.section_ID }} {{ section.instructor }} </li>
+        <li> {{ section.instructor }} </li>
         <ol>
             <li>{{ section.periods.values_list}}</li>
         </ol>
