@@ -40,7 +40,7 @@ class Period(models.Model):
     meeting_day = models.CharField(
         max_length=10,
         choices=MEETING_DAY_CHOICES,
-        default=" ",
+
     )
 
     def __str__(self):
@@ -49,9 +49,11 @@ class Period(models.Model):
 
 class Section(models.Model):
     # Using section_ID as primary key
+    #this cant be a primary key, The section ID is going to be used for other courses
     section_ID = models.CharField(max_length=20, primary_key=True)
     instructor = models.CharField(max_length=255)
-    # course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
+    #Each course can have multiple sections but each section will be related to one course. That is what this foreign key is for
+    #course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
     periods = models.ManyToManyField(Period)
 
     def __str__(self):
