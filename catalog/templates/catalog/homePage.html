@@ -4,7 +4,7 @@ Catalog
 <ul>
 {% for course in courses %}
     <a href="{% url 'viewCourse' course.course_Number %}">
-    <li>{{ course.department_ID }} {{ course.course_Title }}</li>
+    <li>{{ course.department_ID}} {{ course.course_Title }}</li>
     </a>
 {% endfor %}
 </ul>
