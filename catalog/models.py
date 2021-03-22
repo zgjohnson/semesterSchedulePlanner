@@ -5,8 +5,8 @@ from django.db import models
 
 class Course(models.Model):
     # Using course_Number as a primary key
-    department_ID = models.CharField(max_length=4, default=" ")
-    course_Number = models.CharField(max_length=10, primary_key=True)
+    department_ID = models.CharField(max_length=4)
+    course_Number = models.CharField(max_length=10)
     course_Title = models.CharField(max_length=255)
 
     def __str__(self):
@@ -48,12 +48,9 @@ class Period(models.Model):
 
 
 class Section(models.Model):
-    # Using section_ID as primary key
-    #this cant be a primary key, The section ID is going to be used for other courses
-    section_ID = models.CharField(max_length=20, primary_key=True)
+    section_ID = models.CharField(max_length=20)
     instructor = models.CharField(max_length=255)
-    #Each course can have multiple sections but each section will be related to one course. That is what this foreign key is for
-    #course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
     periods = models.ManyToManyField(Period)
 
     def __str__(self):
