@@ -314,8 +314,6 @@ class RegistrationProfile(models.Model):
     activation_key = models.CharField(_('activation key'), max_length=64)
     activated = models.BooleanField(default=False)
 
-
-
     objects = RegistrationManager()
 
     class Meta:

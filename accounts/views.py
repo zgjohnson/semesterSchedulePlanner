@@ -19,8 +19,10 @@ REGISTRATION_FORM = import_string(REGISTRATION_FORM_PATH)
 ACCOUNT_AUTHENTICATED_REGISTRATION_REDIRECTS = getattr(
     settings, 'ACCOUNT_AUTHENTICATED_REGISTRATION_REDIRECTS', True)
 
+
 def home(request):
     return redirect('/accounts/login')
+
 
 class RegistrationView(FormView):
     """

@@ -20,8 +20,9 @@ from accounts import views
 
 urlpatterns = [
 
+    path('accounts/', include('registration.backends.default.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('registration.backends.admin_approval.urls')),
+
     path('', views.home, name='home'),
     path('catalog/', include('catalog.urls')),
 
