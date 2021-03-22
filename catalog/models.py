@@ -2,8 +2,9 @@ from django.db import models
 
 # Create your models here.
 
+
 class Course(models.Model):
-    #Using Course Number as primary key
+    # Using Course Number as primary key
     departmentID = models.CharField("Department ID", max_length=4)
     courseNumber = models.CharField("Course Number", max_length=4, primary_key=True)
     courseTitle = models.CharField("Course Title", max_length=255)
@@ -13,28 +14,32 @@ class Course(models.Model):
 
 
 class Period(models.Model):
-    #Using Django default key
+    # Using Django default key
     startTime = models.TimeField("Start Time")
     endTime = models.TimeField("End Time")
-    DAY_CHOICES = (
-        ('M', 'Monday'),
-        ('T', 'Tuesday'),
-        ('W', 'Wednesday'),
-        ('R', 'Thursday'),
-        ('F', 'Friday'),
-        ('MW', 'Monday, Wednesday'),
-        ('MWF', 'Monday, Wednesday, Friday'),
-        ('TR', 'Tuesday, Thursday'),
-        ('MTWRF', 'Monday, Tuesday, Wednesday, Thursday, Friday')
+    MEETING_DAY_CHOICES = [
+        (MONDAY, 'M'),
+        (TUESDAY, 'T'),
+        (WEDNESDAY, 'W'),
+        (THURSDAY, 'R'),
+        (FRIDAY, 'F'),
+        (MONWED, 'MW'),
+        (MONWEDFRI, 'MWF'),
+        (TUETHU, 'TR'),
+        (MONTUEWEDTHUFRI, 'MWTWRF')
+    ]
+    meeting_day = models.CharField(
+        max_length=10,
+        choices=MEETING_DAY_CHOICES,
+        default=" ",
     )
-    meetingDays = models.CharField("Meeting Day", max_length=10, choices=DAY_CHOICES)
 
     def __str__(self):
-        return str(self.meetingDays) + " " + str(self.startTime) + "-" + str(self.endTime)
+        return str(self.meeting_day) + " " + str(self.startTime) + "-" + str(self.endTime)
 
 
 class Section(models.Model):
-    #Using SectionID as primary key
+    # Using SectionID as primary key
     sectionID = models.CharField("Section ID", max_length=4, primary_key=True)
     instructor = models.CharField("Instructor", max_length=255)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
@@ -42,8 +47,3 @@ class Section(models.Model):
 
     def __str__(self):
         return self.sectionID
-
-
-
-
-
