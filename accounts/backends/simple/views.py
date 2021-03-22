@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 
-from ... import signals
+from accounts import signals
 from ...views import RegistrationView as BaseRegistrationView
 
 

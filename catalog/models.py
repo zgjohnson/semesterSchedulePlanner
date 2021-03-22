@@ -5,7 +5,7 @@ from django.db import models
 class Course(models.Model):
     department_ID = models.CharField(max_length=4)
     course_Number = models.CharField(max_length=10)
-    course_Title = models.CharField( max_length=255)
+    course_Title = models.CharField(max_length=255)
 
     def __str__(self):
         return self.course_Title
