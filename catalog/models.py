@@ -6,7 +6,7 @@ class Course(models.Model):
     #Using Course Number as primary key
     departmentID = models.CharField("Department ID", max_length=4)
     courseNumber = models.CharField("Course Number", max_length=4, primary_key=True)
-    courseTitle = models.CharField("Course Title", max_length=None)
+    courseTitle = models.CharField("Course Title", max_length=255)
 
     def __str__(self):
         return self.courseTitle
@@ -36,7 +36,7 @@ class Period(models.Model):
 class Section(models.Model):
     #Using SectionID as primary key
     sectionID = models.CharField("Section ID", max_length=4, primary_key=True)
-    instructor = models.CharField("Instructor", max_length=None)
+    instructor = models.CharField("Instructor", max_length=255)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     periods = models.ManyToManyField(Period)
 
