@@ -3,42 +3,56 @@ from django.db import models
 
 # Create your models here.
 class Course(models.Model):
-    departmentID = models.CharField("department ID", max_length=4)
-    courseNumber = models.CharField("course Number", max_length=4)
-    courseTitle = models.CharField("course Title", max_length=25, default='')
+    department_ID = models.CharField(max_length=4)
+    course_Number = models.CharField(max_length=10)
+    course_Title = models.CharField( max_length=255)
 
     def __str__(self):
-        return self.courseTitle
+        return self.course_Title
 
 
 class Period(models.Model):
-    startTime = models.TimeField()
-    endTime = models.TimeField()
-    DAY_CHOICES = (
-        ('M', 'Monday'),
-        ('T', 'Tuesday'),
-        ('W', 'Wednesday'),
-        ('R', 'Thursday'),
-        ('F', 'Friday'),
-        ('MW', 'Monday, Wednesday'),
-        ('MWF', 'Monday, Wednesday, Friday'),
-        ('TR', 'Tuesday, Thursday'),
-        ('MTWRF', 'Monday, Tuesday, Wednesday, Thursday, Friday')
+    start_Time = models.TimeField()
+    end_Time = models.TimeField()
+
+    MONDAY = 'M'
+    TUESDAY = 'T'
+    WEDNESDAY = 'W'
+    THURSDAY = 'R'
+    FRIDAY = 'F'
+    MONWED = 'MW'
+    MONWEDFRI = 'MWF'
+    TUETHU = 'TR'
+    MONTUEWEDTHUFRI = 'MWTWRF'
+
+    MEETING_DAY_CHOICES = [
+        (MONDAY, 'M'),
+        (TUESDAY, 'T'),
+        (WEDNESDAY, 'W'),
+        (THURSDAY, 'R'),
+        (FRIDAY, 'F'),
+        (MONWED, 'MW'),
+        (MONWEDFRI, 'MWF'),
+        (TUETHU, 'TR'),
+        (MONTUEWEDTHUFRI, 'MWTWRF')
+    ]
+    meeting_day = models.CharField(
+        max_length=10,
+        choices=MEETING_DAY_CHOICES,
     )
-    meetingDays = models.CharField(max_length=5, choices=DAY_CHOICES)
 
     def __str__(self):
-        return str(self.meetingDays) + " " + str(self.startTime) + "-" + str(self.endTime)
+        return str(self.meeting_day) + " " + str(self.start_Time) + "-" + str(self.end_Time)
 
 
 class Section(models.Model):
-    sectionID = models.CharField("section ID", max_length=4)
-    instructor = models.CharField(max_length=15)
+    section_ID = models.CharField(max_length=20)
+    instructor = models.CharField(max_length=255)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     periods = models.ManyToManyField(Period)
 
     def __str__(self):
-        return self.sectionID
+        return self.section_ID
 
 
 
