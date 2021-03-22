@@ -62,7 +62,7 @@ ROOT_URLCONF = 'semesterSchedulePlanner.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'accounts/../../semesterSchedulePlanner/accounts/templates'],
+        'DIRS': [BASE_DIR / 'accounts/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
