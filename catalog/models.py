@@ -52,7 +52,7 @@ class Section(models.Model):
     section_ID = models.CharField("Section ID", max_length=4, primary_key=True)
     instructor = models.CharField("Instructor", max_length=255)
     course_Number = models.ForeignKey(Course, on_delete=models.CASCADE)
-    periods = models.ManyToManyField(Period, to_field='Period_id')
+    periods = models.ManyToManyField(Period)
 
     def __str__(self):
         return self.section_ID
