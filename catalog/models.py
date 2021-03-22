@@ -6,7 +6,7 @@ from django.db import models
 class Course(models.Model):
     # Using course_Number as primary key
     department_ID = models.CharField("Department ID", max_length=4)
-    course_Number = models.CharField("Course Number", max_length=4, primary_key=True)
+    course_Number = models.CharField("Course Number", max_length=4)
     course_Title = models.CharField("Course Title", max_length=255)
 
     def __str__(self):
