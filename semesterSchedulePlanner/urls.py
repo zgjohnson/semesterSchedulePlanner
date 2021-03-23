@@ -20,7 +20,7 @@ from accounts import views
 
 urlpatterns = [
 
-    path('accounts/', include('registration.backends.default.urls')),
+    path('accounts/', include('accounts.backends.default.urls')),
     path('admin/', admin.site.urls),
 
     path('', views.home, name='home'),
