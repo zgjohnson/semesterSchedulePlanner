@@ -1,6 +1,7 @@
+
+{% extends "catalog/base.html" %}
 Catalog
-
-
+{% block content %}
 <ul>
 {% for course in courses %}
     <a href="{% url 'viewCourse' course.id %}">
@@ -8,3 +9,4 @@ Catalog
     </a>
 {% endfor %}
 </ul>
+{% endblock %}
